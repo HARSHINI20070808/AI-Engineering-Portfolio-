@@ -1,30 +1,50 @@
 //Product Sales and Revenue         
 Analysis Using NumPy 📊
 
-
 import numpy as np
-price=np.array([1000,3000,800,2000])
-quan=np.array([1,3,5,6])
-print("Product price:",price)
-print("Quantity:",quan)
-revenue=price*quan
-print("Revenue:",revenue)
-total_rev=np.sum(price*quan)
-print("Total Revenue:",total_rev)
-print("Maximum price:",price.max())
-print("Minimum price:",price.min())
-print("Total Revenue index :",revenue.argmax())
-avg=np.mean(price)
-print("Average:",avg)
-result=price>avg
-print("Comparison of average :",result)
-print("prices are above:",price[result]) 
-res=revenue>500
-print("Comparison of revenue:",res)
-print("Revenue greater than 50000:",revenue[res])
-print("Square root of prices:",np.sqrt(price))
-print("Log of prices:",np.log(price))
-print("Floor of prices:",np.floor(price/200))
-print("Ceil of prices:",np.ceil(price/200))
-print("Round of prices:",np.round(price/200))
-print("Standard deviation of prices:",np.std(price))
+
+# Product details
+price = np.array([1000, 3000, 800, 2000])
+quan = np.array([1, 3, 5, 6])
+
+print("Product Price:", price)
+print("Quantity:", quan)
+
+# Revenue calculation
+revenue = price * quan
+print("Revenue:", revenue)
+
+total_rev = np.sum(revenue)
+print("Total Revenue:", total_rev)
+
+# Maximum and minimum price
+print("Maximum Price:", price.max())
+print("Minimum Price:", price.min())
+
+# Highest revenue
+print("Maximum Revenue:", revenue.max())
+print("Index of Maximum Revenue:", revenue.argmax())
+
+# Average price
+avg = np.mean(price)
+print("Average Price:", avg)
+
+# Prices above average
+result = price > avg
+print("Comparison of Average:", result)
+print("Prices Above Average:", price[result])
+
+# Revenue filtering
+res = revenue > 5000
+print("Comparison of Revenue:", res)
+print("Revenue Greater Than 5000:", revenue[res])
+
+# Mathematical operations
+print("Square Root:", np.sqrt(price))
+print("Logarithm:", np.log(price))
+print("Floor:", np.floor(price / 200))
+print("Ceil:", np.ceil(price / 200))
+print("Round:", np.round(price / 200))
+
+# Standard deviation
+print("Standard Deviation:", np.std(price))
