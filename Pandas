@@ -1,1 +1,40 @@
-An Employee Data Analysis project developed using Python's Pandas library to organize, manage, and analyze employee information, including names, ages, job roles, salaries, and locations.
+//An Employee Data Analysis project developed using Python's Pandas library to organize, manage, and analyze employee information, including names, ages, job roles, salaries, and locations.
+
+
+## reading a file
+import pandas as pd
+df=pd.read_csv("data.csv")
+##data cleaning
+value=df.fillna({"City":"Bengaluru"})
+print(value)
+##checking missing values
+print("Missing values")
+print(value.isnull().sum())
+print("Average Salary")
+print(value["Salary"].mean())
+highest=value["Salary"].idxmax()
+print("Highest paid employee:")
+print(value.loc[highest,["Name","Age","Job","Salary"]])
+lowest=value["Salary"].idxmin()
+print("Lowest paid employee:")
+print(value.loc[lowest,["Name","Age","Job","Salary"]])
+# Salary filtering
+result = value["Salary"] > 40000
+filtered_data = value[result]
+print("Employees earning above 40000:")
+print(filtered_data)
+##sorting in ascending order
+print("Employee with sorted salary")
+sorted_data=value.sort_values(by="Salary",ascending=True)
+print(sorted_data[["Name","Salary"]])
+print("Count the employees name:")
+print(value["Name"].count())
+print("Count the employees age:")
+print(value["Age"].count())
+##Average salary
+print("Average salary of employee:")
+group = value.groupby("Job")
+print(group["Salary"].mean())
+# Export cleaned employee data
+value.to_csv("cleaned_employees.csv", index=False)
+print("Cleaned employee data saved successfully!")
